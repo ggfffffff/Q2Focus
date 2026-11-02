@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Q2Focus",
+  "version": "1.0.0",
+  "description": "Turn ChatLLM waiting time into task-linked reflection and reusable context.",
+  "action": {
+    "default_title": "Open Q2Focus"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.openai.com/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ]
+}

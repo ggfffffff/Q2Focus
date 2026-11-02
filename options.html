@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q2Focus Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="settings-shell">
+      <header>
+        <span class="settings-mark">Q²</span>
+        <div>
+          <p>Q2Focus</p>
+          <h1>Model settings</h1>
+        </div>
+      </header>
+
+      <section class="settings-card">
+        <div class="field-group">
+          <label for="mode">Response source</label>
+          <select id="mode">
+            <option value="local">Local scripted responses</option>
+            <option value="api">OpenAI-compatible API</option>
+          </select>
+          <p>Local mode works immediately. API mode uses the endpoint and credentials below.</p>
+        </div>
+
+        <div class="api-fields" id="apiFields">
+          <div class="field-group">
+            <label for="endpoint">Chat completions endpoint</label>
+            <input id="endpoint" type="url" value="https://api.openai.com/v1/chat/completions" spellcheck="false" />
+          </div>
+          <div class="field-group">
+            <label for="model">Model</label>
+            <input id="model" type="text" value="gpt-4.1-mini" spellcheck="false" />
+          </div>
+          <div class="field-group">
+            <label for="apiKey">API key</label>
+            <div class="secret-row">
+              <input id="apiKey" type="password" placeholder="Not configured" autocomplete="off" spellcheck="false" />
+              <button id="toggleKey" type="button">Show</button>
+            </div>
+            <p>The key is stored only in <code>chrome.storage.local</code>. It is never included in the project files.</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="secondary" id="clearKey" type="button">Clear saved key</button>
+          <button class="primary" id="saveSettings" type="button">Save settings</button>
+        </div>
+        <p class="status" id="settingsStatus" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="privacy-note">
+        <strong>Before enabling API mode</strong>
+        <p>Review the provider’s data policy and usage costs. Q2Focus sends your prompt and attached Q2Focus context only when API mode is enabled.</p>
+      </section>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
